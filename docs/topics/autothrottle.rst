@@ -7,6 +7,9 @@ AutoThrottle extension
 This is an extension for automatically throttling crawling speed based on load
 of both the Scrapy server and the website you are crawling.
 
+.. seealso:: :ref:`domain-rate-limit` for per-domain token buckets that honor
+   server ``Retry-After`` responses.
+
 Design goals
 ============
 

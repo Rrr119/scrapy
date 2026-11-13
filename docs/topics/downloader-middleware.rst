@@ -1279,6 +1279,21 @@ Adjust retry request priority relative to original request:
 
 See also: :reqmeta:`priority_adjust`.
 
+DomainRateLimitMiddleware
+-------------------------
+
+.. module:: scrapy.downloadermiddlewares.domainratelimit
+
+.. class:: DomainRateLimitMiddleware
+
+   A middleware that limits request rates per domain with token buckets, honors
+   ``Retry-After`` response headers, and recovers rates after successful
+   responses.
+
+   .. versionadded:: VERSION
+
+See :ref:`domain-rate-limit` for the algorithm, settings, stats, and
+interaction with AutoThrottle and RetryMiddleware.
 
 .. currentmodule:: None
 

@@ -61,6 +61,15 @@ __all__ = [
     "DNSCACHE_ENABLED",
     "DNSCACHE_SIZE",
     "DNS_TIMEOUT",
+    "DOMAIN_RATE_LIMIT_BACKOFF_JITTER",
+    "DOMAIN_RATE_LIMIT_BACKOFF_MAX",
+    "DOMAIN_RATE_LIMIT_BACKOFF_START",
+    "DOMAIN_RATE_LIMIT_BURST",
+    "DOMAIN_RATE_LIMIT_ENABLED",
+    "DOMAIN_RATE_LIMIT_MIN_RATE",
+    "DOMAIN_RATE_LIMIT_RATE",
+    "DOMAIN_RATE_LIMIT_RECOVERY_FACTOR",
+    "DOMAIN_RATE_LIMIT_RECOVERY_WINDOW",
     "DOWNLOADER",
     "DOWNLOADER_CLIENTCONTEXTFACTORY",
     "DOWNLOADER_CLIENT_TLS_CIPHERS",
@@ -316,6 +325,16 @@ DNSCACHE_SIZE = 10000
 DNS_RESOLVER = "scrapy.resolver.CachingThreadedResolver"
 DNS_TIMEOUT = 60
 
+DOMAIN_RATE_LIMIT_ENABLED = False
+DOMAIN_RATE_LIMIT_RATE = 1.0
+DOMAIN_RATE_LIMIT_BURST = 1.0
+DOMAIN_RATE_LIMIT_MIN_RATE = 0.1
+DOMAIN_RATE_LIMIT_RECOVERY_WINDOW = 30.0
+DOMAIN_RATE_LIMIT_RECOVERY_FACTOR = 0.1
+DOMAIN_RATE_LIMIT_BACKOFF_START = 1.0
+DOMAIN_RATE_LIMIT_BACKOFF_MAX = 60.0
+DOMAIN_RATE_LIMIT_BACKOFF_JITTER = 0.25
+
 DOWNLOAD_BIND_ADDRESS = None
 
 DOWNLOAD_DELAY = 0
@@ -369,6 +388,7 @@ DOWNLOADER_MIDDLEWARES_BASE = {
     "scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware": 400,
     "scrapy.downloadermiddlewares.useragent.UserAgentMiddleware": 500,
     "scrapy.downloadermiddlewares.retry.RetryMiddleware": 550,
+    "scrapy.downloadermiddlewares.domainratelimit.DomainRateLimitMiddleware": 555,
     "scrapy.downloadermiddlewares.jsonvalidation.JsonValidationMiddleware": 560,
     "scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware": 580,
     "scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware": 590,

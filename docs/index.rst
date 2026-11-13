@@ -156,6 +156,7 @@ Solving specific problems
    topics/contracts
    topics/practices
    topics/autothrottle
+   topics/domain-rate-limit
    topics/security
    topics/jobs
    topics/deploy
@@ -195,6 +196,9 @@ Solving specific problems
 
 :doc:`topics/autothrottle`
     Adjust crawl rate dynamically based on load.
+
+:doc:`topics/domain-rate-limit`
+    Limit request rates per domain and honor server retry hints.
 
 :doc:`topics/security`
     Understand the security implications of Scrapy defaults and how to harden
